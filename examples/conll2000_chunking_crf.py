@@ -42,7 +42,7 @@ def process_data(data, maxlen=None, onehot=False):
     x = [[w[0].lower() for w in s] for s in data]
     y = [[w[1] for w in s] for s in data]
     x = pad_sequences([[word2idx.get(w[0].lower(), 1) for w in s] for s in data], maxlen=maxlen)
-    y = pad_sequences([[class_labels.index(w[1])for w in s] for s in data], maxlen=maxlen)
+    y = pad_sequences([[class_labels.index(w[1]) for w in s] for s in data], maxlen=maxlen)
     if onehot:
         y = numpy.eye(len(class_labels), dtype='float32')[y]
         return x, y

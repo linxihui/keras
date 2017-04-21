@@ -1,4 +1,3 @@
-import keras
 from .. import backend as K
 from .. import activations
 from .. import initializers
@@ -224,7 +223,6 @@ class CRF(Layer):
         self.built = True
 
     def call(self, X, mask=None):
-        input_length = K.int_shape(X)[1]
         if mask is not None:
             assert K.ndim(mask) == 2, 'Input mask to CRF must have dim 2 if not None'
 
